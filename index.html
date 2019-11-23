@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Previsione - Elmi's World</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono" rel="stylesheet">
+  <link href="css/stile.css" rel="stylesheet">
+</head>
+<body>
+
+
+
+  <!-- Fixed navbar -->
+  <!-- <?php //include 'menu.php'; ?> -->
+
+  <div class="container theme-showcase" role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron myJumbotron">
+      <h1>Previsione guadagni</h1>
+      <p>Elmi's World<p>
+	</div>
+
+      <div class="page-header">
+        <h2>Valutazioni iniziali investimenti:</h2>
+      </div>
+	  
+	  <form onsubmit="return clickForm();">
+	  
+      <div class="row">
+
+        
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="costostampaunita">Costo di stampa del libro [€/cad]</label>
+              <input type="number" class="form-control" id="costostampaunita" name="costostampaunita" value="2.5" step="0.01" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="tiratura">Numero copie stampate</label>
+              <input type="number" class="form-control" id="tiratura" name="tiratura" value="300" step="0.01" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="prezzo">Prezzo del libro [€]</label>
+              <input type="number" class="form-control" id="prezzo" name="prezzo" value="12" step="0.01" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="costocorrezione">Costo per la correzione del testo [€]</label>
+              <input type="number" class="form-control" id="costocorrezione" name="costocorrezione" value="100" step="0.01" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="costoimpaginazione">Costo di impaginazione [€]</label>
+              <input type="number" class="form-control" id="costoimpaginazione" name="costoimpaginazione" value="100" step="0.01" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="costografica">Costo della grafica [€]</label>
+              <input type="number" class="form-control" id="costografica" name="costografica" value="100" step="0.01" required>
+            </div>
+          </div>   
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="diritti">Percentuale diritti d'autore [%]</label>
+              <input type="number" class="form-control" id="diritti" name="diritti" value="10" step="0.1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+			<div class="form-group">
+				<label for="iva">Percentuale IVA [%]</label>
+				<div class="radio">
+					<label><input type="radio" name="iva" value="1" checked>IVA 4% - Cartaceo</label>
+				</div>
+				<div class="radio">
+					<label><input type="radio" name="iva" value="2">IVA 4% - Ebook</label>
+				</div>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+			<div class="form-group">
+				<label for="eta">Età dell'autore</label>
+				<div class="radio">
+					<label><input type="radio" name="eta" value="0.75" checked>Maggiore di 35 anni</label>
+				</div>
+				<div class="radio">
+					<label><input type="radio" name="eta" value="0.60">Minore o uguale a 35 anni</label>
+				</div>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="Quantita">Previsione numero libri venduti</label>
+              <input type="number" class="form-control" id="Quantita" name="Quantita" value="300" step="1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="perScontoDiretta">Sconto medio vendita diretta [%]</label>
+              <input type="number" class="form-control" id="perScontoDiretta" name="perScontoDiretta" value="10" step="0.1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-2">
+            <div class="form-group">
+              <label for="spedizione">Spese spedizione [€]</label>
+              <input type="number" class="form-control" id="spedizione" name="spedizione" value="100" step="0.01" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-2">
+            <div class="form-group">
+              <label for="perSpeseGenerali">Spese generali [%]</label>
+              <input type="number" class="form-control" id="perSpeseGenerali" name="perSpeseGenerali" value="5" step="0.1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="perLibreria">Percentuale libri venduti in libreria [%]</label>
+              <input type="number" class="form-control" id="perLibreria" name="perLibreria" value="10" step="0.1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="perScontoLibreria">Sconto libri venduti in libreria [%]</label>
+              <input type="number" class="form-control" id="perScontoLibreria" name="perScontoLibreria" value="35" step="0.1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="qtLibreria">Quantità libri venduti tramite libreria</label>
+              <input type="number" class="form-control" id="qtLibreria" name="qtLibreria" step="1" disabled>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="perDistributore">Percentuale libri venduti distributore [%]</label>
+              <input type="number" class="form-control" id="perDistributore" name="perDistributore" value="30" step="0.1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="perScontoDistributore">Sconto libri venduti distributore [%]</label>
+              <input type="number" class="form-control" id="perScontoDistributore" name="perScontoDistributore" value="55" step="0.1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="qtDistributore">Quantità libri venduti da distributore</label>
+              <input type="number" class="form-control" id="qtDistributore" name="qtDistributore" step="1" disabled>
+            </div>
+          </div>
+  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="qtAutore">Quantità libri venduti all'autore</label>
+              <input type="number" class="form-control" id="qtAutore" name="qtAutore" value="30" step="1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="perScontoAutore">Sconto libri venduti all'autore [%]</label>
+              <input type="number" class="form-control" id="perScontoAutore" name="perScontoAutore" value="30" step="0.1" required>
+            </div>
+          </div>
+		  
+		  <div class="col-md-4">
+            <div class="form-group">
+              <label for="perGuasti">Percentuale libri omaggio o guasti [%]</label>
+              <input type="number" class="form-control" id="perGuasti" name="perGuasti" value="8" step="0.1" required>
+            </div>
+          </div>
+		  
+		<div class="col-md-12">
+          <button type="submit" class="btn btn-info btn-block btn-lg">CALCOLA</button>
+        </div>
+		  
+		  
+		</div>  
+        </form>
+			<div class="row">
+				<div class="col-md-6">
+					<div id="risultatiStampa"></div>		
+				</div>
+			
+				<div class="col-md-6">
+					<div id="risultatiDiritti"></div>		
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div id="risultatiLibreria"></div>		
+				</div>
+			
+				<div class="col-md-6">
+					<div id="risultatiDistributore"></div>		
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div id="risultatiAutore"></div>		
+				</div>
+				<div class="col-md-6">
+					<div id="risultatiCasa"></div>		
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div id="risultatiCosti"></div>		
+				</div>
+				<div class="col-md-4">
+					<div id="risultatiRicavi"></div>		
+				</div>
+				<div class="col-md-4">
+					<div id="risultatiGuadagno"></div>		
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">
+					<div id="risultatiStatistiche"></div>		
+				</div>
+				<div class="col-md-8">
+					<div id="risultatiGrafico"></div>		
+				</div>
+			</div>
+
+      <br>
+    </div> <!-- /container -->
+
+<script src="js/app.js"></script>
+
+<!-- JS PAGINA -->
+<script>
+
+</script>
+
+</body>
+</html>
